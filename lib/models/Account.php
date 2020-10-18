@@ -42,11 +42,7 @@ class Account {
             $stmt->execute(array($this->username, $hashed_password));
             $num_rows = $stmt->fetchColumn();
 
-            if($num_rows == 0) {
-                return false;
-            } else {
-                return true;
-            }
+            return $num_rows != 0;
         } catch (PDOException $e) {
             echo "Error!: " . $e->getMessage() . "<br/>";
             die();

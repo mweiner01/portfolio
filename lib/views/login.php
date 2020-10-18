@@ -3,9 +3,10 @@
 require('../models/Account.php');
 
 // if session not started yet then start it. otherwise do nothing
-if(!session_status() == 2) {
-    session_start();
-}
+session_start();
+
+$_SESSION['wrongPassword'] = false;
+$_SESSION['loggedin'] = false;
 
 
 // check if submit button is press
@@ -22,6 +23,9 @@ if (isset($_POST['login'])) {
             // Set session variables
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $_POST['username'];
+            $_SESSION['wrongPassword'] = false;
+        } else {
+            $_SESSION['wrongPassword'] = true;
         }
     }
 }
@@ -46,22 +50,13 @@ if (isset($_POST['login'])) {
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
-    <style>
-        .center {
-            margin: auto;
-            width: 50%;
-            border: 3px solid green;
-            padding: 10px;
-        }
-    </style>
-
 </head>
 <body>
 
 <main>
 
 
-    <!-- Login when screen is md or bigger -->
+    <!-- Login when screen is xl -->
     <section class="xl:block hidden h-screen" style="background: linear-gradient(to right, white 50%, #252F3F 50%);">
         <div class="w-1/2 flex h-screen">
             <div class="text-center p-4 absolute inset-y-0 right-0 flex">
@@ -75,6 +70,17 @@ if (isset($_POST['login'])) {
                         <div>
                             <input type="text" class="border-2 border-gray-800 text-gray-800 placeholder-gray-800 focus:border-green-600 p-2 rounded-lg" name="username" placeholder="Benutzername">
                             <input type="passwort" class="border-2 border-gray-800 text-gray-800 placeholder-gray-800 focus:border-green-600 p-2 rounded-lg" name="password" placeholder="Passwort">
+
+                            <!-- Show messages if wrong password or correct password -->
+                            <?php
+                            if($_SESSION['wrongPassword'] == true) {
+                                echo "<p class='text-red-800 font-medium text-medium mt-1'>Der Benutzername oder das Passwort ist leider falsch</p>";
+                            } else if($_SESSION['loggedin'] == true) {
+                                echo "<p class='text-green-800 font-medium text-medium mt-1'>Du wurdest erfolgreich eingeloggt</p>";
+                            }
+                            ?>
+
+
                         </div>
                         <div class="mt-2">
                             <input type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold p-2 cursor-pointer w-1/3 rounded-lg" name="login" value="Einloggen">
@@ -84,6 +90,9 @@ if (isset($_POST['login'])) {
             </div>
         </div>
     </section>
+
+    <!-- Login when screen is smaller then xl -->
+
 
 
 </main>

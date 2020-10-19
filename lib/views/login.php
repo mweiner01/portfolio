@@ -74,9 +74,9 @@ if (isset($_POST['login'])) {
                             <!-- Show messages if wrong password or correct password -->
                             <?php
                             if($_SESSION['wrongPassword'] == true) {
-                                echo "<p class='text-red-800 font-medium text-medium mt-1'>Der Benutzername oder das Passwort ist leider falsch</p>";
+                                echo "<p class='text-red-800 font-medium text-medium mt-1'>Der Benutzername oder das Passwort ist leider falsch.</p>";
                             } else if($_SESSION['loggedin'] == true) {
-                                echo "<p class='text-green-800 font-medium text-medium mt-1'>Du wurdest erfolgreich eingeloggt</p>";
+                                echo "<p class='text-green-800 font-medium text-medium mt-1'>Du wurdest erfolgreich eingeloggt.</p>";
                             }
                             ?>
 

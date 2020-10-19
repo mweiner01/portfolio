@@ -30,8 +30,8 @@
                         <button aria-expanded="false"
                                 aria-label="Main menu"
                                 class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out">
-                            <svg class="block h-6 w-6" fill="none" id="hamburgerbtn" stroke="currentColor"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="block h-6 w-6" fill="none" stroke="currentColor"
+                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="togglebtn">
                                 <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
                                       stroke-width="2"/>
                             </svg>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden sm:hidden" id="mobileMenu">
+            <div class="hidden" id="mobileMenu">
                 <div class="px-2 pt-2 pb-3 font-semibold">
                     <a class="block px-3 py-2 rounded-md text-base text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                        href="#">Home</a>
@@ -123,12 +123,11 @@
                         </h3>
                         <div class="mt-4 max-w-2xl md:text-xl text-medium leading-7 text-gray-500 lg:mx-auto">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ducimus incidunt
-                                nobis velit voluptatem. Exercitationem maxime molestiae perspiciatis qui sit.
+                                Ich bin der Max, 18 Jahre alt und ich programmiere nun schon seit circa 4 Jahren hobbymäßig. Da mir das Programmieren so viel spaß macht, habe ich beschlossen,
+                                eine Ausbildung als Fachinformatiker für Anwendungsentwicklung zu beginnen.
                             </p>
                             <br>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ea eligendi est harum
-                                hic, impedit nihil obcaecati officiis veniam voluptates!
+                            <p>Auf der folgenden Seite werden Sie meine Erfahrungen und Kenntnisse etwas besser kennenlernen und ebenfalls einen Einblick in meine derzeitigen Projekte bekommen.
                             </p>
                             <div class="mt-5 sm:mt-8 sm:flex sm:justify-start lg:justify-center xl:justify-center">
                                 <div class="mt-3 sm:mt-0">
@@ -163,6 +162,7 @@
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fas fa-code"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">HTML & CSS</h1>
+                        <p class="text-sm text-gray-500">seit circa. 4 Jahren</p>
                     </div>
                     <div class="mt-2">
                         <p class="text-base text-gray-500">HTML und CSS lernte ich mit PHP, ich baute einige Webseiten und entdeckte ebenfalls das CSS Framework
@@ -173,6 +173,7 @@
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-js"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">Javascript</h1>
+                        <p class="text-sm text-gray-500">seit weniger als 1 Monat</p>
                     </div>
                     <div class="mt-2">
                         <p class="text-base text-gray-500">Mit Javascript kam ich das erste mal in meinem Praktikum in Kontakt. Dort programmierte ich ein Schachspiel mit GUI.</p>
@@ -182,6 +183,7 @@
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-php"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">PHP</h1>
+                        <p class="text-sm text-gray-500">seit circa. 4 Jahren</p>
                     </div>
                     <div class="mt-2">
                         <p class="text-base text-gray-500">PHP lernte ich als erstes und meine ersten Projekte waren einfache Webseiten mit Systemen wie Login & Register oder SQL Abfragen für Blogartikel.</p>
@@ -191,6 +193,7 @@
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-java"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">Java</h1>
+                        <p class="text-sm text-gray-500">seit circa. 4 Jahren</p>
                     </div>
                     <div class="mt-2">
                         <p class="text-base text-gray-500">Meine ersten Projekte mit Java waren Minecraft Plugins mit der
@@ -201,6 +204,7 @@
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-python"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">Python</h1>
+                        <p class="text-sm text-gray-500">seit weniger als 6 Monaten</p>
                     </div>
                     <div class="mt-2">
                         <p class="text-base text-gray-500">Erste Erfahrungen machte ich mit Python, indem ich die
@@ -282,12 +286,12 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-<!-- Linking ../../js/script.js -->
-<script src="../../js/script.js"></script>
 
 
 <script crossorigin="anonymous"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<!-- Linking ../../js/script.js -->
+<script src="../../js/script.js"></script>
 </body>
 </html>

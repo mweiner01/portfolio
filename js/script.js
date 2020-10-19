@@ -1,26 +1,25 @@
-let btn = document.getElementById('hamburgerbtn');
-let mobileMenu = document.getElementById('mobileMenu');
 
-// In case I need it
-let switchStatus = false;
+
+
+let btn = document.getElementById("togglebtn");
+let mobileMenu = document.getElementById("mobileMenu");
 
 
 // Function to open menu if I click toggle button
 btn.addEventListener('click', function () {
     if ($(this).is(':checked')) {
-        mobileMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('hidden');
         switchStatus = false;
     } else {
-        mobileMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('hidden');
         switchStatus = true;
     }
 });
 
-
 // Event to close the menu if its open and I resize the window
 window.addEventListener('resize', function (event) {
     if ($(window).width() > 960) {
-        mobileMenu.classList.remove('active');
+        mobileMenu.classList.add('hidden');
     }
 });
 

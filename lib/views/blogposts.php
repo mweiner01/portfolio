@@ -16,7 +16,12 @@
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-
+    <style>
+        ::selection {
+            color: white;
+            background: #057A55;
+        }
+    </style>
 </head>
 <body>
 
@@ -85,42 +90,44 @@
     <!-- highlighted posts -->
     <section class="mt-8">
         <div class="text-center">
-            <h1 class="text-4xl font-medium tracking-tight text-gray-900">Vorgestellte Blogbeiträge</h1>
+            <h1 class="text-3xl font-medium tracking-tight uppercase text-gray-900">Vorgestellte Blogbeiträge</h1>
         </div>
-        <div class="my-8">
+        <div class="mt-4 mb-8">
             <hr class="m-auto max-w-5xl">
         </div>
         <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:px-32 md:px-24 p-4">
-            <div class="mx-auto relative rounded-xl shadow-xl">
-                <img src="https://i.pinimg.com/originals/2d/b6/ef/2db6efbb5bae2978ba803d90012b22b4.jpg" class="object-cover rounded-xl h-64 w-auto" alt="">
-                <div class="absolute top-0 pl-4 pt-4 max-w-sm">
-                    <h4 class="text-gray-300 text-sm uppercase font-semibold">makkusan</h4>
-                    <h1 class="font-bold mt-4 text-3xl text-white tracking-tight leading-none">Ein wundervoller Start mit Python</h1>
+            <?php
+
+            require('../models/mysql.php');
+
+            global $pdo;
+
+            $sql = "SELECT * FROM blogposts WHERE blogpost_featured=1";
+
+            try {
+                $statement = $pdo->prepare($sql);
+                $statement->execute();
+                while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    $title = $result['blogpost_title'];
+                    $author = $result['blogpost_author'];
+                    $img_url = $result['blogpost_img_url'];
+
+                    echo "<div class='mx-auto relative rounded-xl shadow-xl'>
+                <img src='https://i.pinimg.com/originals/2d/b6/ef/2db6efbb5bae2978ba803d90012b22b4.jpg' class='object-cover rounded-xl h-64 w-auto' alt''>
+                <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
+                    <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
+                    <h1 class='font-bold mt-4 text-3xl text-white tracking-tight leading-none'>$title</h1>
                 </div>
-                <div class="absolute bottom-0 pl-4 pb-8">
-                    <a href="" class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-900 font-bold py-2 px-2">Zum Beitrag</a>
+                <div class='absolute bottom-0 pl-4 pb-8'>
+                    <a href='' class='bg-gray-200 hover:bg-gray-300 rounded text-gray-900 font-bold py-2 px-4'>Zum Beitrag</a>
                 </div>
-            </div>
-            <div class="mx-auto relative rounded-xl shadow-xl">
-                <img src="https://images8.alphacoders.com/441/441454.jpg" class="object-cover rounded-xl h-64 w-auto" alt="">
-                <div class="absolute top-0 pl-4 pt-4 max-w-sm">
-                    <h4 class="text-gray-300 text-sm uppercase font-semibold">makkusan</h4>
-                    <h1 class="font-bold mt-4 text-3xl text-white tracking-tight leading-none">Ein so großes Projekt alleine stemmen?</h1>
-                </div>
-                <div class="absolute bottom-0 pl-4 pb-8">
-                    <a href="" class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-900 font-bold py-2 px-2">Zum Beitrag</a>
-                </div>
-            </div>
-            <div class="mx-auto relative rounded-xl shadow-xl">
-                <img src="https://www.wallpapertip.com/wmimgs/42-420707_purple-star-wars-background.jpg" class="object-cover rounded-xl h-64 w-auto" alt="">
-                <div class="absolute top-0 pl-4 pt-4 max-w-sm">
-                    <h4 class="text-gray-300 text-sm uppercase font-semibold">makkusan</h4>
-                    <h1 class="font-bold mt-4 text-3xl text-white tracking-tight leading-none">Doch eher eine neue Programmiersprache?</h1>
-                </div>
-                <div class="absolute bottom-0 pl-4 pb-8">
-                    <a href="" class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-900 font-bold py-2 px-2">Zum Beitrag</a>
-                </div>
-            </div>
+            </div>";
+                }
+            } catch (PDOException $e) {
+                print($e);
+            }
+
+            ?>
         </div>
         <div class="mt-8">
             <hr class="m-auto max-w-5xl">
@@ -135,21 +142,21 @@
 
             global $pdo;
 
-            $sql = "SELECT * FROM blogposts WHERE 1";
+            $sql = "SELECT * FROM blogposts WHERE blogpost_featured=0";
 
             try {
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
-                while($result = $statement->fetch(PDO::FETCH_ASSOC)) {
-                    $title = $result['blogpost_title'];
-                    $subtitle = $result['blogpost_subtitle'];
-                    $content = $result['blogpost_content'];
-                    $author = $result['blogpost_author'];
-                    $date = $result['blogpost_date'];
+                while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    if ($result != null) {
+                        $title = $result['blogpost_title'];
+                        $subtitle = $result['blogpost_subtitle'];
+                        $content = $result['blogpost_content'];
+                        $author = $result['blogpost_author'];
+                        $date = $result['blogpost_date'];
 
-
-                    // echo all blogposts
-                    echo "<div class='my-4 xl:px-32 p-4 mx-auto max-w-6xl'>
+                        // echo all blogposts
+                        echo "<div class='my-4 xl:px-32 p-4 mx-auto max-w-6xl'>
                                 <div class='text-left md:max-w-5xl max-w-xl'>
                                     <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
                                     <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
@@ -160,6 +167,14 @@
                                 </div>
                             </div>
                             <div class=''><hr class='m-auto max-w-4xl'></div>";
+                    } else {
+                        echo "<div class='my-4 xl:px-32 p-4 mx-auto'>
+                                    <div class='text-center'>
+                                        <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>Es gibt derzeit keine Blogartikel :(</h1>
+                                       </div>
+                                </div>
+                                <div class=''><hr class='m-auto max-w-4xl'></div>";
+                    }
                 }
             } catch (PDOException $e) {
                 print($e);
@@ -174,9 +189,7 @@
     </section>
 
 
-
     <!-- Projects section END -->
-
 
 
 </main>
@@ -186,7 +199,6 @@
 <script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
 
 
 <script crossorigin="anonymous"

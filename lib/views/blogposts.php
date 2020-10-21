@@ -113,7 +113,7 @@
                     $img_url = $result['blogpost_img_url'];
 
                     echo "<div class='mx-auto relative rounded-xl shadow-xl'>
-                <img src='https://i.pinimg.com/originals/2d/b6/ef/2db6efbb5bae2978ba803d90012b22b4.jpg' class='object-cover rounded-xl h-64 w-auto' alt''>
+                <img src='$img_url' class='object-cover rounded-xl h-64 w-auto' alt''>
                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
                     <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
                     <h1 class='font-bold mt-4 text-3xl text-white tracking-tight leading-none'>$title</h1>

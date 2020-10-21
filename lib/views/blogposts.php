@@ -103,14 +103,14 @@
 
 
                     // echo all blogposts
-                    echo "<div class='p-32'>
+                    echo "<div class='pt-12 xl:px-32 p-4'>
                                 <div class='text-left'>
-                                    <h1 class='font-extrabold text-6xl text-gray-900 tracking-tight leading-10'>$title</h1>
-                                    <h2 class='font-bold text-4xl text-gray-700'>$subtitle</h2>
-                                    <h3 class='mt-4 text-lg font-semibold text-gray-700'><span class='mr-4'>von <a href='' class='text-green-800 hover:underline'>$author</a></span>|<span class='ml-4'> <i class='fa fa-calendar'></i> $date</span></h3>
+                                    <h1 class='font-extrabold md:text-6xl text-4xl  text-gray-900 tracking-tight xl:leading-10 leading-none'>$title</h1>
+                                    <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
+                                    <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-4'>von <a href='' class='text-green-800 hover:underline'>$author</a></span>|<span class='ml-4'> <i class='fa fa-calendar'></i> $date</span></h3>
                                 </div>
-                                <div class='mt-3 text-left max-w-4xl'>
-                                    <p class='text-font-medium text-gray-600 text-xl'>$content</p>
+                                <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
+                                    <p class='text-gray-600 text-xl'>$content</p>
                                 </div>
                             </div>";
                 }

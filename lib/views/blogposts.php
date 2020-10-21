@@ -15,6 +15,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -81,6 +82,51 @@
     </section>
     <!-- Navbar section END -->
 
+    <!-- highlighted posts -->
+    <section class="mt-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-medium tracking-tight text-gray-900">Vorgestellte Blogbeiträge</h1>
+        </div>
+        <div class="my-8">
+            <hr class="m-auto max-w-5xl">
+        </div>
+        <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:px-32 md:px-24 p-4">
+            <div class="mx-auto relative rounded-xl shadow-xl">
+                <img src="https://i.pinimg.com/originals/2d/b6/ef/2db6efbb5bae2978ba803d90012b22b4.jpg" class="object-cover rounded-xl h-64 w-auto" alt="">
+                <div class="absolute top-0 pl-4 pt-4 max-w-sm">
+                    <h4 class="text-gray-300 text-sm uppercase font-semibold">makkusan</h4>
+                    <h1 class="font-bold mt-4 text-3xl text-white tracking-tight leading-none">Ein wundervoller Start mit Python</h1>
+                </div>
+                <div class="absolute bottom-0 pl-4 pb-8">
+                    <a href="" class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-900 font-bold py-2 px-2">Zum Beitrag</a>
+                </div>
+            </div>
+            <div class="mx-auto relative rounded-xl shadow-xl">
+                <img src="https://images8.alphacoders.com/441/441454.jpg" class="object-cover rounded-xl h-64 w-auto" alt="">
+                <div class="absolute top-0 pl-4 pt-4 max-w-sm">
+                    <h4 class="text-gray-300 text-sm uppercase font-semibold">makkusan</h4>
+                    <h1 class="font-bold mt-4 text-3xl text-white tracking-tight leading-none">Ein so großes Projekt alleine stemmen?</h1>
+                </div>
+                <div class="absolute bottom-0 pl-4 pb-8">
+                    <a href="" class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-900 font-bold py-2 px-2">Zum Beitrag</a>
+                </div>
+            </div>
+            <div class="mx-auto relative rounded-xl shadow-xl">
+                <img src="https://www.wallpapertip.com/wmimgs/42-420707_purple-star-wars-background.jpg" class="object-cover rounded-xl h-64 w-auto" alt="">
+                <div class="absolute top-0 pl-4 pt-4 max-w-sm">
+                    <h4 class="text-gray-300 text-sm uppercase font-semibold">makkusan</h4>
+                    <h1 class="font-bold mt-4 text-3xl text-white tracking-tight leading-none">Doch eher eine neue Programmiersprache?</h1>
+                </div>
+                <div class="absolute bottom-0 pl-4 pb-8">
+                    <a href="" class="bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-900 font-bold py-2 px-2">Zum Beitrag</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8">
+            <hr class="m-auto max-w-5xl">
+        </div>
+    </section>
+
     <section class="mt-8">
         <div class="grid grid-flow-row grid-cols-1 gap-4">
             <?php
@@ -107,7 +153,7 @@
                                 <div class='text-left md:max-w-5xl max-w-xl'>
                                     <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
                                     <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
-                                    <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-4'>von <a href='' class='text-green-800 hover:underline'>$author</a></span>|<span class='ml-4'> <i class='fa fa-calendar'></i> $date</span></h3>
+                                    <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-4'><i class='fa fa-calendar'></i> $date</span>|<span class='ml-4'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
                                 </div>
                                 <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
                                     <p class='text-gray-600 text-xl'>$content</p>

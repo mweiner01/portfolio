@@ -87,19 +87,20 @@
         <div class="text-center xl:p-24 md:p-24">
             <h1 class="text-2xl tracking-tight leading-10 font-extrabold text-white sm:text-5xl sm:leading-none md:text-5xl xl:text-6xl uppercase">
                 Hey, ich bin Max!</h1>
-            <h1 class="text-base tracking-tight leading-10 font-extrabold text-green-600 sm:text-3xl leading-none md:text-3xl xl:text-4xl uppercase">
-                Hobby Entwickler</h1>
+            <h1 class="text-base tracking-tight leading-10 font-extrabold text-green-600 sm:text-3xl leading-none md:text-3xl xl:text-4xl uppercase" id="title"><span
+                        class="txt-rotate"
+                        data-period="2000"
+                        data-rotate='[ "Hobby Entwickler.", "mit Ausbildung?"]'></span></h1>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
                 <div class="rounded-md shadow">
-                    <a class="w-full font-bold flex items-center justify-center xl:px-8 xl:py-3 px-4 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition duration-150 ease-in-out"
-                       href="#">
-                        Lorem ipsum dolor.
-                    </a>
+                    <button class="w-full font-bold flex items-center justify-center xl:px-8 xl:py-3 px-4 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition duration-150 ease-in-out" id="changeColorBtn">
+                        Kontaktiere mich
+                    </button>
                 </div>
                 <div class="mt-3 sm:mt-0 sm:ml-3">
                     <a class="w-full flex items-center font-bold justify-center xl:px-8 xl:py-3 px-4 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-green-700 border-2 border-green-600 hover:border-green-100 hover:text-green-600 hover:bg-white focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 transition duration-150 ease-in-out"
                        href="#">
-                        Lorem ipsum.
+                        Mein Lebenslauf
                     </a>
                 </div>
             </div>
@@ -293,5 +294,6 @@
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Linking ../../js/script.js -->
 <script src="../../js/script.js"></script>
+<script src="../../js/textwriting_skript.js"></script>
 </body>
 </html>

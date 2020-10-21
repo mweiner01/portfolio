@@ -63,6 +63,22 @@ class Account {
         }
     }
 
+    public function checkIfUsernameExist(): bool {
+        global $pdo;
+
+        try {
+            $sqlAll= "SELECT COUNT(*) as num_rows FROM accounts WHERE username=?";
+            $stmt = $pdo->prepare($sqlAll);
+            $stmt->execute(array($this->username));
+            $num_rows = $stmt->fetchColumn();
+
+            return $num_rows >= 1;
+        } catch (PDOException $e) {
+            echo "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
 
     public function checkAccountExist($username) {
         return false;

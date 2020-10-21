@@ -1,9 +1,5 @@
-
-
-
 let btn = document.getElementById("togglebtn");
 let mobileMenu = document.getElementById("mobileMenu");
-
 
 // Function to open menu if I click toggle button
 btn.addEventListener('click', function () {

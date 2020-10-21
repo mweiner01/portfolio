@@ -81,8 +81,8 @@
     </section>
     <!-- Navbar section END -->
 
-    <section class="mt-12">
-        <div class="grid grid-flow-row xl:grid-cols-1 grid-cols-1 gap-4">
+    <section class="mt-8">
+        <div class="grid grid-flow-row grid-cols-1 gap-4">
             <?php
 
             require('../models/mysql.php');
@@ -103,16 +103,17 @@
 
 
                     // echo all blogposts
-                    echo "<div class='pt-12 xl:px-32 p-4'>
-                                <div class='text-left'>
-                                    <h1 class='font-extrabold md:text-6xl text-4xl  text-gray-900 tracking-tight xl:leading-10 leading-none'>$title</h1>
+                    echo "<div class='my-4 xl:px-32 p-4 mx-auto max-w-6xl'>
+                                <div class='text-left md:max-w-5xl max-w-xl'>
+                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
                                     <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
                                     <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-4'>von <a href='' class='text-green-800 hover:underline'>$author</a></span>|<span class='ml-4'> <i class='fa fa-calendar'></i> $date</span></h3>
                                 </div>
                                 <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
                                     <p class='text-gray-600 text-xl'>$content</p>
                                 </div>
-                            </div>";
+                            </div>
+                            <div class=''><hr class='m-auto max-w-4xl'></div>";
                 }
             } catch (PDOException $e) {
                 print($e);
@@ -120,6 +121,10 @@
 
             ?>
         </div>
+    </section>
+
+    <section class="mt-8">
+
     </section>
 
 

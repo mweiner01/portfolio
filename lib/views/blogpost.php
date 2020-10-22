@@ -129,11 +129,13 @@ require '../models/blog.php';
                         $author = $result['blogpost_author'];
                         $date = $result['blogpost_date'];
                         $likes = $result['blogpost_likes'];
+                        $likesminus = $likes-1;
 
                         $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_UP);
 
-                        // echo all blogposts
-                        echo "<div class='mx-auto my-4 xl:px-56 md:px-24 p-4 max-w-7xl'>
+
+                        if(blog::checkUserHasLikedPost($_SERVER['REMOTE_ADDR'], $id) == true) {
+                            echo "<div class='mx-auto my-4 xl:px-56 md:px-24 p-4 max-w-7xl'>
                                 <div class='text-left md:max-w-5xl max-w-xl'>
                                     <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
                                     <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
@@ -145,11 +147,31 @@ require '../models/blog.php';
                                 </div>
                             </div>
                                 <div class='mt-4 mx-auto' id='likesection'>
-                                   <span class='text-gray-900 text-lg font-medium mr-4'><span class='font-semibold'>$likes</span> Personen gefällt dieser Beitrag.</span>
+                                   <span class='bg-green-400 px-2 py-1 rounded-lg text-white xl:text-lg text-base font-semibold mr-4'>Dir und <span class='font-bold'>$likesminus</span> weiteren Person(en) gefällt dieser Beitrag.</span>
+                                </div>
+                            <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
+                            ";
+                        } else {
+                            // echo all blogposts
+                            echo "<div class='mx-auto my-4 xl:px-56 md:px-24 p-4 max-w-7xl'>
+                                <div class='text-left md:max-w-5xl max-w-xl'>
+                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
+                                    <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
+                                    <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-3'><i class='fa fa-calendar'></i> $date</span>|<span class='mx-3'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
+                                    <h3 class='mt-2 text-base font-semibold text-gray-700'><span><i class='far fa-clock'></i> Geschätzte Lesedauer: $readingtime Minuten</span></h3>
+                                </div>
+                                <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
+                                    <p class='text-gray-600 text-xl'>$content</p>
+                                </div>
+                            </div>
+                                <div class='mt-4 mx-auto' id='likesection'>
+                                   <span class='text-gray-900 text-lg font-medium mr-4'><span class='font-semibold'>$likes</span> Person(en) gefällt dieser Beitrag.</span>
+                                  
                                    <a href='../models/like_blogpost.php?blogpost_id=$id' class='bg-green-400 hover:bg-green-600 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</a>
                                 </div>
                             <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
                             ";
+                        }
                     }
                 }
             } catch (PDOException $e) {

@@ -154,7 +154,7 @@
                                      <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
                                 </div>
                                 <div class='absolute bottom-0 pl-4 pb-8'>
-                                    <a href='blogpost.php?blogpost_id=$id' class='bg-gray-100 hover:bg-gray-300 rounded text-gray-900 font-bold py-2 px-4'>Zum Beitrag</a>
+                                    <a href='blogpost.php?blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
                                 </div>
                         </div>";
                 }
@@ -207,7 +207,7 @@
                                      <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
                                 </div>
                                 <div class='absolute bottom-0 pl-4 pb-8'>
-                                    <a href='blogpost.php?blogpost_id=$id' class='bg-gray-100 hover:bg-gray-300 rounded text-gray-900 font-bold py-2 px-4'>Zum Beitrag</a>
+                                    <a href='blogpost.php?blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
                                 </div>
                         </div>";
                 }

@@ -18,17 +18,15 @@ class blog {
 
 
 
-    public function __construct($id, $title, $subtitle, $content, $author, $url, $featured, $likes)
+    public function __construct($title, $subtitle, $content, $author, $url, $featured)
     {
         setlocale(LC_ALL, "de_DE");
-        $this->blogpost_id = $id;
         $this->blogpost_title = $title;
         $this->blogpost_subtitle = $subtitle;
         $this->blogpost_content = $content;
         $this->blogpost_author = $author;
         $this->blogpost_date = date("d.m.Y, H:i");
         $this->blogpost_featured = $featured;
-        $this->blogpost_likes = $likes;
         $this->blogpost_url = $url;
     }
 

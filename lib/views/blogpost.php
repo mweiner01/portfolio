@@ -77,8 +77,8 @@ require '../models/blog.php';
     <!-- Navbar section END -->
 
     <!-- highlighted posts -->
-    <section class="mt-8">
-        <div class="grid grid-flow-row grid-cols-1 gap-4 xl:px-56 md:px-24 p-4">
+    <section>
+        <div class="">
             <?php
 
             require('../models/mysql.php');
@@ -93,12 +93,11 @@ require '../models/blog.php';
                 while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
                     $img_url = $result['blogpost_img_url'];
 
-                    echo "<div class='relative rounded-xl mx-auto md:max-w-4xl max-w-sm'>
-                            <img src='$img_url' class='object-cover rounded-lg mx-auto h-auto w-full' alt''>
-                            <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
-                                   <a href='blogposts.php' class='bg-gray-100 text-gray-900 hover:bg-gray-300 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'><i class='fas fa-arrow-left'></i> Zurück</a>
+                    echo "<div class='relative'>
+                            <img src='$img_url' class='object-cover mx-auto h-80 w-full' alt''>
+                            <div class='absolute top-0 pl-4 pt-4'>
+                                   <a href='blogposts.php' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-12 md:py-2 px-2 py-2 rounded'><i class='fas fa-arrow-left'></i> Zurück</a>
                                </div>
-                                <p class='text-sm'>Foto: <a href='$img_url' class='text-green-600 hover:underline'>$img_url</a></p>
                         </div>";
                 }
             } catch (PDOException $e) {
@@ -131,7 +130,7 @@ require '../models/blog.php';
                         $likes = $result['blogpost_likes'];
                         $likesminus = $likes-1;
 
-                        $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_UP);
+                        $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_EVEN);
 
 
                         if(blog::checkUserHasLikedPost($_SERVER['REMOTE_ADDR'], $id) == true) {
@@ -142,7 +141,7 @@ require '../models/blog.php';
                                     <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-3'><i class='fa fa-calendar'></i> $date</span>|<span class='mx-3'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
                                     <h3 class='mt-2 text-base font-semibold text-gray-700'><span><i class='far fa-clock'></i> Geschätzte Lesedauer: $readingtime Minuten</span></h3>
                                 </div>
-                                <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
+                                <div class='mt-6 text-left md:max-w-4xl max-w-xl'>
                                     <p class='text-gray-600 text-xl'>$content</p>
                                 </div>
                             </div>
@@ -160,7 +159,7 @@ require '../models/blog.php';
                                     <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-3'><i class='fa fa-calendar'></i> $date</span>|<span class='mx-3'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
                                     <h3 class='mt-2 text-base font-semibold text-gray-700'><span><i class='far fa-clock'></i> Geschätzte Lesedauer: $readingtime Minuten</span></h3>
                                 </div>
-                                <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
+                                <div class='mt-8 text-left md:max-w-4xl max-w-xl'>
                                     <p class='text-gray-600 text-xl'>$content</p>
                                 </div>
                             </div>

@@ -48,9 +48,9 @@
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex font-semibold">
                                     <a class="px-3 py-2 rounded-md text-base leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="#">Home</a>
+                                       href="home.php">Home</a>
                                     <a class="ml-12 px-3 py-2 rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="#">Blog</a>
+                                       href="blogposts.php">Blog</a>
                                     <button class="ml-12 px-3 py-2 font-semibold rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                                             id="projectBtn">Projekte
                                     </button>
@@ -69,7 +69,7 @@
                     <a class="block px-3 py-2 rounded-md text-base text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                        href="#">Home</a>
                     <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="#">Blog</a>
+                       href="blogposts.php">Blog</a>
                     <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                        href="#projects">Projekte</a>
                     <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"

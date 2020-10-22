@@ -1,10 +1,13 @@
 <?php
 session_start();
+
 if(isset($_GET['blogpost_id'])) {
     $id = $_GET['blogpost_id'];
 } else {
     header("Location: blogposts.php");
 }
+require '../models/blog.php';
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,69 +62,18 @@ if(isset($_GET['blogpost_id'])) {
             color: #4a5568;
         }
     </style>
+    <script crossorigin="anonymous"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </head>
 <body>
 
 <main>
 
     <!-- Navbar section START d-->
-    <section>
-        <nav class="w-full bg-gray-800">
-            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-                <div class="relative flex items-center justify-between h-16">
-                    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                        <button aria-expanded="false"
-                                aria-label="Main menu"
-                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out">
-                            <svg class="block h-6 w-6" fill="none" stroke="currentColor"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="togglebtn">
-                                <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                        <h1 class="block md:hidden text-xl tracking-tight font-extrabold text-white sm:text-2xl sm:leading-none md:text-2xl uppercase">
-                            Max W.</h1>
-                        <h1 class="hidden md:block text-xl tracking-tight font-extrabold text-white sm:text-2xl sm:leading-none md:text-2xl uppercase">
-                            Max Weiner</h1>
-                    </div>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <div class="ml-3 relative">
-                            <div class="hidden sm:block sm:ml-6">
-                                <div class="flex font-semibold">
-                                    <a class="px-3 py-2 rounded-md text-base leading-5 text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="#">Home</a>
-                                    <a class="ml-12 px-3 py-2 rounded-md text-base leading-5 text-gray-300 bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="#">Blog</a>
-                                    <button class="ml-12 px-3 py-2 font-semibold rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                            id="projectBtn">Projekte
-                                    </button>
-                                    <button class="ml-12 px-3 py-2 rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                            id="contactBtn">Kontaktiere
-                                        mich
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden" id="mobileMenu">
-                <div class="px-2 pt-2 pb-3 font-semibold">
-                    <a class="block px-3 py-2 rounded-md text-base text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="#">Home</a>
-                    <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="#">Blog</a>
-                    <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="#projects">Projekte</a>
-                    <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="#">Kontaktiere
-                        mich</a>
-                </div>
-            </div>
-        </nav>
-    </section>
+    <?php
+    include("../models/navbar.html");
+    ?>
     <!-- Navbar section END -->
 
     <!-- highlighted posts -->
@@ -141,8 +93,11 @@ if(isset($_GET['blogpost_id'])) {
                 while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
                     $img_url = $result['blogpost_img_url'];
 
-                    echo "<div class='relative rounded-xl mx-auto max-w-4xl'>
-                                <img src='$img_url' class='object-cover rounded-lg mx-auto h-auto w-full' alt''>
+                    echo "<div class='relative rounded-xl mx-auto md:max-w-4xl max-w-sm'>
+                            <img src='$img_url' class='object-cover rounded-lg mx-auto h-auto w-full' alt''>
+                            <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
+                                   <a href='blogposts.php' class='bg-gray-100 text-gray-900 hover:bg-gray-300 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'><i class='fas fa-arrow-left'></i> Zurück</a>
+                               </div>
                                 <p class='text-sm'>Foto: <a href='$img_url' class='text-green-600 hover:underline'>$img_url</a></p>
                         </div>";
                 }
@@ -173,6 +128,8 @@ if(isset($_GET['blogpost_id'])) {
                         $content = $result['blogpost_content'];
                         $author = $result['blogpost_author'];
                         $date = $result['blogpost_date'];
+                        $likes = $result['blogpost_likes'];
+
                         $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_UP);
 
                         // echo all blogposts
@@ -187,6 +144,10 @@ if(isset($_GET['blogpost_id'])) {
                                     <p class='text-gray-600 text-xl'>$content</p>
                                 </div>
                             </div>
+                                <div class='mt-4 mx-auto' id='likesection'>
+                                   <span class='text-gray-900 text-lg font-medium mr-4'><span class='font-semibold'>$likes</span> Personen gefällt dieser Beitrag.</span>
+                                   <a href='../models/like_blogpost.php?blogpost_id=$id' class='bg-green-400 hover:bg-green-600 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</a>
+                                </div>
                             <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
                             ";
                     }
@@ -211,16 +172,10 @@ if(isset($_GET['blogpost_id'])) {
 
 
 <!-- Linking jquery -->
-<script crossorigin="anonymous"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
 
 <script crossorigin="anonymous"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Linking ../../js/script.js -->
-<script src="../../js/script.js"></script>
-<script src="../../js/textwriting_skript.js"></script>
 </body>
 </html>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_GET['blogpost_id'])) {
+    $id = $_GET['blogpost_id'];
+} else {
+    header("Location: blogposts.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -118,44 +126,24 @@
 
     <!-- highlighted posts -->
     <section class="mt-8">
-        <div class="text-center">
-            <h1 class="text-3xl font-medium tracking-tight uppercase text-gray-900">Vorgestellte Blogbeiträge</h1>
-        </div>
-        <div class="mt-8 mb-8">
-            <hr class="m-auto max-w-5xl">
-        </div>
-        <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:px-56 md:px-24 p-4">
+        <div class="grid grid-flow-row grid-cols-1 gap-4 xl:px-56 md:px-24 p-4">
             <?php
 
             require('../models/mysql.php');
 
             global $pdo;
 
-            $sql = "SELECT * FROM blogposts WHERE blogpost_featured=1 ORDER BY blogpost_date DESC LIMIT 3";
+            $sql = "SELECT * FROM blogposts WHERE blogpost_id=$id";
 
             try {
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
-                    $id = $result['blogpost_id'];
-                    $title = $result['blogpost_title'];
-                    $author = $result['blogpost_author'];
                     $img_url = $result['blogpost_img_url'];
-                    $content = $result['blogpost_content'];
-                    $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_UP);
 
-                    echo "<div class='mx-auto relative rounded-xl shadow-xl'>
-                                <img src='$img_url' class='object-cover rounded-xl h-64 w-auto' alt''>
-                                <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
-                                    <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
-                                    <h1 class='font-bold mt-4 text-3xl text-white tracking-tight leading-none'>$title</h1>
-                                </div>
-                                <div class='absolute top-0 right-0 pr-4 pt-4 max-w-sm'>
-                                     <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
-                                </div>
-                                <div class='absolute bottom-0 pl-4 pb-8'>
-                                    <a href='blogpost.php?blogpost_id=$id' class='bg-gray-100 hover:bg-gray-300 rounded text-gray-900 font-bold py-2 px-4'>Zum Beitrag</a>
-                                </div>
+                    echo "<div class='relative rounded-xl mx-auto max-w-4xl'>
+                                <img src='$img_url' class='object-cover rounded-lg mx-auto h-auto w-full' alt''>
+                                <p class='text-sm'>Foto: <a href='$img_url' class='text-green-600 hover:underline'>$img_url</a></p>
                         </div>";
                 }
             } catch (PDOException $e) {
@@ -163,62 +151,51 @@
             }
 
             ?>
-        </div>
-        <div class="mt-8">
-            <hr class="m-auto max-w-5xl">
         </div>
     </section>
 
     <section class="mt-8">
-        <div class="text-center">
-            <h1 class="text-3xl font-medium tracking-tight uppercase text-gray-900">Zuletzt hinzugefügte Blogbeiträge</h1>
-        </div>
-        <div class="mt-8 mb-8">
-            <hr class="m-auto max-w-5xl">
-        </div>
-        <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:px-56 md:px-24 p-4">
+        <div class="grid grid-flow-row grid-cols-1 gap-4">
             <?php
 
             require('../models/mysql.php');
 
             global $pdo;
-
-            // sql to get all posts ordered by date and blogpost_featured = 0
-            $sql = "SELECT * FROM blogposts ORDER BY blogpost_date DESC LIMIT 6";
+            $sql = "SELECT * FROM blogposts WHERE blogpost_id=$id";
 
             try {
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 while ($result = $statement->fetch(PDO::FETCH_ASSOC)) {
-                    $id = $result['blogpost_id'];
-                    $title = $result['blogpost_title'];
-                    $author = $result['blogpost_author'];
-                    $img_url = $result['blogpost_img_url'];
-                    $content = $result['blogpost_content'];
-                    $readingtime = round(str_word_count($content) / 250,1, PHP_ROUND_HALF_UP);
+                    if ($result != null) {
+                        $title = $result['blogpost_title'];
+                        $subtitle = $result['blogpost_subtitle'];
+                        $content = $result['blogpost_content'];
+                        $author = $result['blogpost_author'];
+                        $date = $result['blogpost_date'];
+                        $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_UP);
 
-                    echo "<div class='mx-auto relative rounded-xl shadow-xl'>
-                                <img src='$img_url' class='object-cover rounded-xl h-64 w-auto' alt''>
-                                <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
-                                    <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
-                                    <h1 class='font-bold mt-4 text-3xl text-white tracking-tight leading-none'>$title</h1>
+                        // echo all blogposts
+                        echo "<div class='mx-auto my-4 xl:px-56 md:px-24 p-4 max-w-7xl'>
+                                <div class='text-left md:max-w-5xl max-w-xl'>
+                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
+                                    <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
+                                    <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-3'><i class='fa fa-calendar'></i> $date</span>|<span class='mx-3'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
+                                    <h3 class='mt-2 text-base font-semibold text-gray-700'><span><i class='far fa-clock'></i> Geschätzte Lesedauer: $readingtime Minuten</span></h3>
                                 </div>
-                                <div class='absolute top-0 right-0 pr-4 pt-4 max-w-sm'>
-                                     <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
+                                <div class='mt-3 text-left md:max-w-4xl max-w-xl'>
+                                    <p class='text-gray-600 text-xl'>$content</p>
                                 </div>
-                                <div class='absolute bottom-0 pl-4 pb-8'>
-                                    <a href='blogpost.php?blogpost_id=$id' class='bg-gray-100 hover:bg-gray-300 rounded text-gray-900 font-bold py-2 px-4'>Zum Beitrag</a>
-                                </div>
-                        </div>";
+                            </div>
+                            <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
+                            ";
+                    }
                 }
             } catch (PDOException $e) {
                 print($e);
             }
 
             ?>
-        </div>
-        <div class="mt-8">
-            <hr class="m-auto max-w-5xl">
         </div>
     </section>
 

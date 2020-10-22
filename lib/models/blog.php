@@ -22,7 +22,7 @@ class blog {
         $this->blogpost_subtitle = $subtitle;
         $this->blogpost_content = $content;
         $this->blogpost_author = $author;
-        $this->blogpost_date = $title;
+        $this->blogpost_date = date("d.m.Y - H:i");
         $this->blogpost_featured = $featured;
         $this->blogpost_url = $url;
     }

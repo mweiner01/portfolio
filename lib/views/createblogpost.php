@@ -12,12 +12,16 @@ if (isset($_POST['create'])) {
     if (isset($_POST['title']) && isset($_POST['subtitle']) && isset($_POST['content']) && isset($_POST['img_url']) && isset($_POST['featured'])) {
 
         // create user with username and password
-        $blogpost = new blog($_POST['title'], $_POST['subtitle'], $_POST['content'], $_POST['author'], $_POST['img_url'], $_POST['featured']);
+
+        if($_POST['featured'] == "Ja") {
+            $blogpost = new blog($_POST['title'], $_POST['subtitle'], $_POST['content'], $_POST['author'], $_POST['img_url'], 1);
+        } else {
+            $blogpost = new blog($_POST['title'], $_POST['subtitle'], $_POST['content'], $_POST['author'], $_POST['img_url'], 0);
+        }
         $blogpost->createBlogPost();
         header("Location: blogposts.php");
     }
 }
-
 ?>
 
 
@@ -43,10 +47,9 @@ if (isset($_POST['create'])) {
 
 <main>
 
-
     <!-- Login when screen is xl -->
     <section class="xl:block hidden h-screen" style="background: linear-gradient(to right, white 50%, #252F3F 50%);">
-        <div class="w-1/2 flex h-screen">
+        <div class="w-1/3 flex h-screen">
             <div class="text-center p-4 absolute inset-y-0 right-0 flex">
                 <a href="https://www.google.com" class="text-gray-400 hover:text-gray-500  text-3xl mr-4"><i class="fas fa-home"></i></a>
             </div>
@@ -75,7 +78,7 @@ if (isset($_POST['create'])) {
                                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                                             Content
                                         </label>
-                                        <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" rows="10" name="content" placeholder="Heute bin ich Eis essen gewesen. Das Eis war sehr lecker, aufjedenfall ein Must-Go!"></textarea>
+                                        <textarea name="content" id="editor"></textarea>
                                         <p class="text-gray-600 text-xs italic">Hier kommt dein Text für dein Beitrag hin.</p>
                                     </div>
                                 </div>
@@ -129,7 +132,18 @@ if (isset($_POST['create'])) {
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
+<script type="text/javascript" src="../../tinymce/tinymce.min.js"></script>
 
+
+<script>
+    tinymce.init({
+        selector: 'textarea#editor',  //Change this value according to your HTML
+        auto_focus: 'element1',
+        width: "700",
+        height: "200"
+    });
+
+</script>
 
 <script crossorigin="anonymous"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"

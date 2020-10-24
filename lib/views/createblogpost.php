@@ -1,10 +1,13 @@
 <?php
 
-require('../models/blog.php');
-
 // if session not started yet then start it. otherwise do nothing
 session_start();
 
+if(isset($_SESSION['loggedin'])) {
+    if($_SESSION['loggedin'] == false) {
+        header("Location: ?page=home");
+    }
+}
 
 // check if submit button is press
 if (isset($_POST['create'])) {
@@ -19,7 +22,7 @@ if (isset($_POST['create'])) {
             $blogpost = new blog($_POST['title'], $_POST['subtitle'], $_POST['content'], $_POST['author'], $_POST['img_url'], 0);
         }
         $blogpost->createBlogPost();
-        header("Location: blogposts.php");
+        header("Location: ?page=blogposts");
     }
 }
 ?>
@@ -30,7 +33,7 @@ if (isset($_POST['create'])) {
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="width=device-width, initial-scale=1"  name="viewport">
     <meta content="ie-edge" http-equiv="X-UA-Comptatible">
 
     <!-- Linking Fontawesome -->
@@ -51,7 +54,7 @@ if (isset($_POST['create'])) {
     <section class="xl:block hidden h-screen" style="background: linear-gradient(to right, white 50%, #252F3F 50%);">
         <div class="w-1/3 flex h-screen">
             <div class="text-center p-4 absolute inset-y-0 right-0 flex">
-                <a href="https://www.google.com" class="text-gray-400 hover:text-gray-500  text-3xl mr-4"><i class="fas fa-home"></i></a>
+                <a href="?page=home" class="text-gray-400 hover:text-gray-500  text-3xl mr-4"><i class="fas fa-home"></i></a>
             </div>
             <div class="text-center max-w-xl m-auto">
                 <h1 class="font-semibold tracking-tight text-3xl">Erstelle ganz einfach einen Beitrag <i class="fas fa-sign-in-alt"></i></h1>
@@ -132,7 +135,7 @@ if (isset($_POST['create'])) {
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
-<script type="text/javascript" src="../../tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
 
 
 <script>

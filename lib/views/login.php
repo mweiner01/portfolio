@@ -1,6 +1,5 @@
 <?php
 
-require('../models/Account.php');
 
 // if session not started yet then start it. otherwise do nothing
 session_start();

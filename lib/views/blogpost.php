@@ -1,12 +1,15 @@
 <?php
 session_start();
+include("js/action_js.php");
+
+$id = $_GET['blogpost_id'];
 
 if(isset($_GET['blogpost_id'])) {
     $id = $_GET['blogpost_id'];
 } else {
-    header("Location: blogposts.php");
+    header("Location: ?page=blogposts");
 }
-require '../models/blog.php';
+
 
 ?>
 <!doctype html>
@@ -72,7 +75,7 @@ require '../models/blog.php';
 
     <!-- Navbar section START d-->
     <?php
-    include("../models/navbar.html");
+    include("lib/models/navbar.html");
     ?>
     <!-- Navbar section END -->
 
@@ -81,7 +84,6 @@ require '../models/blog.php';
         <div class="">
             <?php
 
-            require('../models/mysql.php');
 
             global $pdo;
 
@@ -96,7 +98,7 @@ require '../models/blog.php';
                     echo "<div class='relative'>
                             <img src='$img_url' class='object-cover mx-auto h-80 w-full' alt''>
                             <div class='absolute top-0 pl-4 pt-4'>
-                                   <a href='blogposts.php' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-12 md:py-2 px-2 py-2 rounded'><i class='fas fa-arrow-left'></i> Zurück</a>
+                                   <a href='?page=blogposts' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-12 md:py-2 px-2 py-2 rounded'><i class='fas fa-arrow-left'></i> Zurück</a>
                                </div>
                         </div>";
                 }
@@ -111,8 +113,6 @@ require '../models/blog.php';
     <section class="mt-8">
         <div class="grid grid-flow-row grid-cols-1 gap-4">
             <?php
-
-            require('../models/mysql.php');
 
             global $pdo;
             $sql = "SELECT * FROM blogposts WHERE blogpost_id=$id";
@@ -129,8 +129,9 @@ require '../models/blog.php';
                         $date = $result['blogpost_date'];
                         $likes = $result['blogpost_likes'];
                         $likesminus = $likes-1;
+                        $filename = "add_like.php";
 
-                        $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_EVEN);
+                        $readingtime = round(str_word_count($content) / 150, 1, PHP_ROUND_HALF_EVEN);
 
 
                         if(blog::checkUserHasLikedPost($_SERVER['REMOTE_ADDR'], $id) == true) {
@@ -164,9 +165,10 @@ require '../models/blog.php';
                                 </div>
                             </div>
                                 <div class='mt-4 mx-auto' id='likesection'>
-                                   <span class='text-gray-900 text-lg font-medium mr-4'><span class='font-semibold'>$likes</span> Person(en) gefällt dieser Beitrag.</span>
+                                   <span class='text-gray-900 text-lg font-medium mr-4'><span class='font-semibold' id='likecount'>$likes</span> Person(en) gefällt dieser Beitrag.</span>
                                   
-                                   <a href='../models/like_blogpost.php?blogpost_id=$id' class='bg-green-400 hover:bg-green-600 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</a>
+
+                                    <button id='likebtn' onclick='add_like($id)' class='bg-green-400 hover:bg-green-600 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</button>
                                 </div>
                             <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
                             ";

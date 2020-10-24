@@ -83,9 +83,9 @@
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex font-semibold">
                                     <a class="px-3 py-2 rounded-md text-base leading-5 text-white hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="home.php">Home</a>
+                                       href="?page=home">Home</a>
                                     <a class="ml-12 px-3 py-2 rounded-md text-base leading-5 text-gray-300 bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="blogposts.php">Blog</a>
+                                       href="?page=blogposts">Blog</a>
                                     <button class="ml-12 px-3 py-2 font-semibold rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                                             id="projectBtn">Projekte
                                     </button>
@@ -102,9 +102,9 @@
             <div class="hidden" id="mobileMenu">
                 <div class="px-2 pt-2 pb-3 font-semibold">
                     <a class="block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="home.php">Home</a>
+                       href="?page=home">Home</a>
                     <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                       href="blogposts.php">Blog</a>
+                       href="?page=blogposts">Blog</a>
                     <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                        href="#projects">Projekte</a>
                     <a class="mt-1 block px-3 py-2 rounded-md text-base text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
@@ -117,17 +117,16 @@
     <!-- Navbar section END -->
 
     <!-- highlighted posts -->
-    <section class="mt-8">
-        <div class="text-center">
-            <h1 class="text-3xl font-medium tracking-tight uppercase text-gray-900">Vorgestellte Blogbeiträge</h1>
+    <section class="mt-4">
+        <div class="text-center xl:px-56 md:px-24 p-4 max-w-6xl">
+            <h1 class="text-3xl font-extrabold tracking-tight uppercase text-white bg-orange-300 rounded">Vorgestellte Blogbeiträge</h1>
         </div>
-        <div class="mt-8 mb-8">
-            <hr class="m-auto max-w-5xl">
+        <div class="mt-4 mb-8 xl:px-56 md:px-24 md:block hidden">
+            <hr class="max-w-sm">
         </div>
-        <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:px-56 md:px-24 p-4">
+        <div class="grid grid-flow-row justify-center gap-y-4 gap-x-4 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
             <?php
 
-            require('../models/mysql.php');
 
             global $pdo;
 
@@ -142,19 +141,19 @@
                     $author = $result['blogpost_author'];
                     $img_url = $result['blogpost_img_url'];
                     $content = $result['blogpost_content'];
-                    $readingtime = round(str_word_count($content) / 250, 1, PHP_ROUND_HALF_UP);
+                    $readingtime = round(str_word_count($content) / 150, 1, PHP_ROUND_HALF_UP);
 
-                    echo "<div class='mx-auto relative rounded-xl shadow-xl'>
-                                <img src='$img_url' class='object-cover rounded-xl h-64 w-auto' alt''>
+                    echo "<div class='relative rounded-xl shadow-xl'>
+                                <img src='$img_url' class='object-cover rounded-xl h-64 w-full' alt''>
                                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
                                     <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
-                                    <h1 class='font-bold mt-4 text-3xl text-white tracking-tight leading-none'>$title</h1>
+                                    <h1 class='font-bold mt-4 xl:text-3xl text-2xl text-white tracking-tight leading-none'>$title</h1>
                                 </div>
                                 <div class='absolute top-0 right-0 pr-4 pt-4 max-w-sm'>
                                      <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
                                 </div>
                                 <div class='absolute bottom-0 pl-4 pb-8'>
-                                    <a href='blogpost.php?blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
+                                    <a href='?page=blogpost&blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
                                 </div>
                         </div>";
                 }
@@ -169,17 +168,15 @@
         </div>
     </section>
 
-    <section class="mt-8">
-        <div class="text-center">
-            <h1 class="text-3xl font-medium tracking-tight uppercase text-gray-900">Zuletzt hinzugefügte Blogbeiträge</h1>
+    <section class="mt-4">
+        <div class="text-center xl:px-56 md:px-24 p-4 max-w-6xl">
+            <h1 class="text-3xl font-extrabold tracking-tight uppercase text-white bg-green-300 rounded">Zuletzt hinzugefügte Blogbeiträge</h1>
         </div>
-        <div class="mt-8 mb-8">
-            <hr class="m-auto max-w-5xl">
+        <div class="mt-4 mb-8 xl:px-56 md:px-24 md:block hidden">
+            <hr class="max-w-sm">
         </div>
-        <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:px-56 md:px-24 p-4">
+        <div class="grid grid-flow-row justify-center gap-y-4 gap-x-4 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
             <?php
-
-            require('../models/mysql.php');
 
             global $pdo;
 
@@ -195,19 +192,19 @@
                     $author = $result['blogpost_author'];
                     $img_url = $result['blogpost_img_url'];
                     $content = $result['blogpost_content'];
-                    $readingtime = round(str_word_count($content) / 250,1, PHP_ROUND_HALF_UP);
+                    $readingtime = round(str_word_count($content) / 150,1, PHP_ROUND_HALF_UP);
 
-                    echo "<div class='mx-auto relative rounded-xl shadow-xl'>
-                                <img src='$img_url' class='object-cover rounded-xl h-64 w-auto' alt''>
+                    echo "<div class='relative rounded-xl shadow-xl'>
+                                <img src='$img_url' class='object-cover rounded-xl h-64 w-full' alt''>
                                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
-                                    <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
-                                    <h1 class='font-bold mt-4 text-3xl text-white tracking-tight leading-none'>$title</h1>
+                                    <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
+                                    <h1 class='font-bold mt-4 xl:text-3xl text-2xl text-white tracking-tight leading-none'>$title</h1>
                                 </div>
                                 <div class='absolute top-0 right-0 pr-4 pt-4 max-w-sm'>
-                                     <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
+                                     <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
                                 </div>
                                 <div class='absolute bottom-0 pl-4 pb-8'>
-                                    <a href='blogpost.php?blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
+                                    <a href='?page=blogpost&blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
                                 </div>
                         </div>";
                 }
@@ -243,7 +240,9 @@
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Linking ../../js/script.js -->
-<script src="../../js/script.js"></script>
-<script src="../../js/textwriting_skript.js"></script>
+
+<script src="js/script.js"></script>
+<script src="js/textwriting_skript.js"></script>
+
 </body>
 </html>

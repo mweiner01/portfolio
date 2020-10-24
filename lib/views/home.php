@@ -48,9 +48,9 @@
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex font-semibold">
                                     <a class="px-3 py-2 rounded-md text-base leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="home.php">Home</a>
+                                       href="?page=home">Home</a>
                                     <a class="ml-12 px-3 py-2 rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-                                       href="blogposts.php">Blog</a>
+                                       href="?page=blogposts">Blog</a>
                                     <button class="ml-12 px-3 py-2 font-semibold rounded-md text-base leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
                                             id="projectBtn">Projekte
                                     </button>
@@ -293,7 +293,8 @@
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Linking ../../js/script.js -->
-<script src="../../js/script.js"></script>
-<script src="../../js/textwriting_skript.js"></script>
+<script src="js/script.js"></script>
+<script src="js/textwriting_skript.js"></script>
+
 </body>
 </html>

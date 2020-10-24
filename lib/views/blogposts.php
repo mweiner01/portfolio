@@ -16,41 +16,6 @@
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-    <style>
-        ::selection {
-            color: white;
-            background: #057A55;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-        h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-        }
-        h3 {
-            font-size: 1.875rem;
-            font-weight: 700;
-        }
-        h4 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        h5 {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        h6 {
-            font-size: 1.125rem;
-            font-weight: 700;
-        }
-        p {
-            font-size: 1.25rem;
-            color: #4a5568;
-        }
-    </style>
 </head>
 <body>
 
@@ -146,11 +111,11 @@
                     echo "<div class='relative rounded-xl shadow-xl'>
                                 <img src='$img_url' class='object-cover rounded-xl h-64 w-full' alt''>
                                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
-                                    <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
-                                    <h1 class='font-bold mt-4 xl:text-3xl text-2xl text-white tracking-tight leading-none'>$title</h1>
+                                    <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
+                                    <h1 class='font-bold mt-4 px-2 xl:text-3xl text-2xl text-white tracking-tight leading-none'>$title</h1>
                                 </div>
                                 <div class='absolute top-0 right-0 pr-4 pt-4 max-w-sm'>
-                                     <h4 class='text-gray-400 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
+                                     <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>
                                 </div>
                                 <div class='absolute bottom-0 pl-4 pb-8'>
                                     <a href='?page=blogpost&blogpost_id=$id' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-4 md:py-2 px-2 py-2 rounded'>Zum Beitrag</a>
@@ -198,7 +163,7 @@
                                 <img src='$img_url' class='object-cover rounded-xl h-64 w-full' alt''>
                                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
                                     <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
-                                    <h1 class='font-bold mt-4 xl:text-3xl text-2xl text-white tracking-tight leading-none'>$title</h1>
+                                    <h1 class='font-bold mt-4 px-2 xl:text-3xl text-2xl text-white tracking-tight leading-none'>$title</h1>
                                 </div>
                                 <div class='absolute top-0 right-0 pr-4 pt-4 max-w-sm'>
                                      <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='far fa-clock'></i> $readingtime Min</h4>

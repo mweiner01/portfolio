@@ -39,26 +39,32 @@ if(isset($_GET['blogpost_id'])) {
         h1 {
             font-size: 3rem;
             font-weight: 700;
+            line-height: 1;
         }
         h2 {
             font-size: 2.25rem;
             font-weight: 700;
+            line-height: 1;
         }
         h3 {
             font-size: 1.875rem;
             font-weight: 700;
+            line-height: 1;
         }
         h4 {
             font-size: 1.5rem;
             font-weight: 700;
+            line-height: 1;
         }
         h5 {
             font-size: 1.25rem;
             font-weight: 700;
+            line-height: 1;
         }
         h6 {
             font-size: 1.125rem;
             font-weight: 700;
+            line-height: 1;
         }
         p {
             font-size: 1.25rem;
@@ -147,7 +153,7 @@ if(isset($_GET['blogpost_id'])) {
                                 </div>
                             </div>
                                 <div class='mt-4 mx-auto' id='likesection'>
-                                   <span class='bg-green-400 px-2 py-1 rounded-lg text-white xl:text-lg text-base font-semibold mr-4'>Dir und <span class='font-bold'>$likesminus</span> weiteren Person(en) gefällt dieser Beitrag.</span>
+                                   <span class='bg-green-400 px-2 py-1 rounded-lg text-white md:text-lg text-sm font-semibold mr-4'>Dir und <span class='font-bold'>$likesminus</span> weiteren Person(en) gefällt dieser Beitrag.</span>
                                 </div>
                             <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
                             ";
@@ -165,7 +171,7 @@ if(isset($_GET['blogpost_id'])) {
                                 </div>
                             </div>
                                 <div class='mt-4 mx-auto' id='likesection'>
-                                   <span class='text-gray-900 text-lg font-medium mr-4'><span class='font-semibold' id='likecount'>$likes</span> Person(en) gefällt dieser Beitrag.</span>
+                                   <span class='text-gray-900 md:text-lg text-sm font-medium mr-4'><span class='font-semibold' id='likecount'>$likes</span> Person(en) gefällt dieser Beitrag.</span>
                                   
 
                                     <button id='likebtn' onclick='add_like($id)' class='bg-green-400 hover:bg-green-600 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</button>

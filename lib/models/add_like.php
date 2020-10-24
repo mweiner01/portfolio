@@ -16,6 +16,8 @@ if(isset($id)) {
         blog::addLike($ip, $id);
         blog::addblogpost($ip, $id);
         echo blog::getLikes($id);
+    } else {
+        echo blog::getLikes($id);
     }
 }
 

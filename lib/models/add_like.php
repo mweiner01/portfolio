@@ -9,12 +9,12 @@ require('mysql.php');
 
 # get blogpost id
 $id = $_GET['blogpost_id'];
-$ip = $_SERVER['REMOTE_ADDR'];
+$username = $_SESSION['username'];
 
 if(isset($id)) {
-    if(!blog::checkUserHasLikedPost($ip, $id)) {
-        blog::addLike($ip, $id);
-        blog::addblogpost($ip, $id);
+    if(!blog::checkUserHasLikedPost($username, $id)) {
+        blog::addLike($username, $id);
+        blog::addblogpost($username, $id);
         echo blog::getLikes($id);
     } else {
         echo blog::getLikes($id);

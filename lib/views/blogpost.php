@@ -103,7 +103,7 @@ if(isset($_GET['blogpost_id'])) {
 
                     echo "<div class='relative'>
                             <img src='$img_url' class='object-cover mx-auto h-80 w-full' alt''>
-                            <div class='absolute top-0 pl-4 pt-4'>
+                            <div class='absolute top-0 pl-4 pt-8'>
                                    <a href='?page=blogposts' class='bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-900 font-semibold md:text-lg text-sm md:px-12 md:py-2 px-2 py-2 rounded'><i class='fas fa-arrow-left'></i> Zurück</a>
                                </div>
                         </div>";
@@ -143,7 +143,7 @@ if(isset($_GET['blogpost_id'])) {
                         if(blog::checkUserHasLikedPost($_SERVER['REMOTE_ADDR'], $id) == true) {
                             echo "<div class='mx-auto my-4 xl:px-56 md:px-24 p-4 max-w-7xl'>
                                 <div class='text-left md:max-w-5xl max-w-xl'>
-                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
+                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none mb-2'>$title</h1>
                                     <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
                                     <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-3'><i class='fa fa-calendar'></i> $date</span>|<span class='mx-3'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
                                     <h3 class='mt-2 text-base font-semibold text-gray-700'><span><i class='far fa-clock'></i> Geschätzte Lesedauer: $readingtime Minuten</span></h3>
@@ -161,7 +161,7 @@ if(isset($_GET['blogpost_id'])) {
                             // echo all blogposts
                             echo "<div class='mx-auto my-4 xl:px-56 md:px-24 p-4 max-w-7xl'>
                                 <div class='text-left md:max-w-5xl max-w-xl'>
-                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none'>$title</h1>
+                                    <h1 class='font-extrabold md:text-6xl text-4xl text-gray-900 tracking-tight leading-none mb-2'>$title</h1>
                                     <h2 class='font-bold md:text-4xl text-2xl text-gray-700'>$subtitle</h2>
                                     <h3 class='mt-4 md:text-lg text-base font-semibold text-gray-700'><span class='mr-3'><i class='fa fa-calendar'></i> $date</span>|<span class='mx-3'>von <a href='' class='text-green-800 hover:underline'>$author</a></span></h3>
                                     <h3 class='mt-2 text-base font-semibold text-gray-700'><span><i class='far fa-clock'></i> Geschätzte Lesedauer: $readingtime Minuten</span></h3>

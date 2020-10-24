@@ -106,6 +106,7 @@
                     $author = $result['blogpost_author'];
                     $img_url = $result['blogpost_img_url'];
                     $content = $result['blogpost_content'];
+                    $likes = $result['blogpost_likes'];
                     $readingtime = round(str_word_count($content) / 150, 1, PHP_ROUND_HALF_UP);
 
                     echo "<div class='relative rounded-xl shadow-xl'>
@@ -157,6 +158,7 @@
                     $author = $result['blogpost_author'];
                     $img_url = $result['blogpost_img_url'];
                     $content = $result['blogpost_content'];
+                    $likes = $result['blogpost_likes'];
                     $readingtime = round(str_word_count($content) / 150,1, PHP_ROUND_HALF_UP);
 
                     echo "<div class='relative rounded-xl shadow-xl'>

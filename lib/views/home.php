@@ -158,7 +158,7 @@
                     Meine Erfahrungen
                 </h3>
             </div>
-            <div class="grid grid-flow-row xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 p-12 mt-6 text-left">
+            <div class="grid grid-flow-row justify-center gap-y-4 gap-x-4 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
                 <div class="max-w-sm">
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fas fa-code"></i></span>

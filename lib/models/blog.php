@@ -20,12 +20,12 @@ class blog {
 
     public function __construct($title, $subtitle, $content, $author, $url, $featured)
     {
-        setlocale(LC_ALL, "de_DE");
+        $sTStamp = "1342333231";
         $this->blogpost_title = $title;
         $this->blogpost_subtitle = $subtitle;
         $this->blogpost_content = $content;
         $this->blogpost_author = $author;
-        $this->blogpost_date = date("d.m.Y, H:i");
+        $this->blogpost_date = date("d.m.Y, H:i", $sTStamp);
         $this->blogpost_featured = $featured;
         $this->blogpost_url = $url;
     }
@@ -73,7 +73,7 @@ class blog {
         }
     }
 
-    public function addLike($userip, $blogpost_id) {
+    public function addLike($username, $blogpost_id) {
         global $pdo;
         $likes = blog::getLikes($blogpost_id) + 1;
         try {
@@ -84,12 +84,12 @@ class blog {
             die();
         }
     }
-    public function addblogpost($userip, $blogpost_id) {
+    public function addblogpost($username, $blogpost_id) {
         global $pdo;
 
         try {
-            $statement = $pdo->prepare("INSERT INTO blogpost_likes (`user_ip`, `blogpost_id`) VALUES (?,?)");
-            $statement->execute(array($userip, $blogpost_id));
+            $statement = $pdo->prepare("INSERT INTO blogpost_likes (`username`, `blogpost_id`) VALUES (?,?)");
+            $statement->execute(array($username, $blogpost_id));
         } catch (PDOException $e) {
             echo "Error!: " . $e->getMessage() . "<br/>";
             die();

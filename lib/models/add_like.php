@@ -1,15 +1,21 @@
 <?php
 
+
+session_start();
+
+
 require('blog.php');
 require('mysql.php');
 
 # get blogpost id
 $id = $_GET['blogpost_id'];
+$ip = $_SERVER['REMOTE_ADDR'];
 
-# add like to blogpost
-blog::addLike($_SERVER['REMOTE_ADDR'], $id);
-blog::addblogpost($_SERVER['REMOTE_ADDR'], $id);
-
-# return likes from blogpost
-echo blog::getLikes($id);
+if(isset($id)) {
+    if(!blog::checkUserHasLikedPost($ip, $id)) {
+        blog::addLike($ip, $id);
+        blog::addblogpost($ip, $id);
+        echo blog::getLikes($id);
+    }
+}
 

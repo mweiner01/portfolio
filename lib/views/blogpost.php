@@ -31,7 +31,9 @@ if(isset($_GET['blogpost_id'])) {
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
     <style>
         ::selection {
             color: white;
@@ -172,7 +174,7 @@ if(isset($_GET['blogpost_id'])) {
                                    <span class='text-gray-900 md:text-lg text-sm font-medium mr-4'><span class='font-semibold' id='likecount'>$likes</span> Person(en) gefällt dieser Beitrag.</span>
                                   
 
-                                    <button id='likebtn' onclick='add_like($id)' class='bg-green-400 hover:bg-green-600 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</button>
+                                    <button id='likebtn' onclick='add_like($id)' class='bg-green-400 hover:bg-green-600 transition duration-200 ease-in-out transform hover:scale-105 text-white font-semibold rounded py-2 px-6 like-button'><i class='fas fa-thumbs-up'></i> Like</button>
                                 </div>
                             <div class='xl:px-56 md:px-24 p-4'><hr class='mx-auto max-w-4xl'></div>
                             ";

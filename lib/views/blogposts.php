@@ -89,7 +89,7 @@
         <div class="mt-4 mb-8 xl:px-56 md:px-24 md:block hidden">
             <hr class="max-w-sm">
         </div>
-        <div class="grid grid-flow-row justify-center gap-y-4 gap-x-4 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
+        <div class="grid grid-flow-row justify-center gap-y-8 gap-x-8 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
             <?php
 
 
@@ -109,7 +109,7 @@
                     $likes = $result['blogpost_likes'];
                     $readingtime = round(str_word_count($content) / 150, 1, PHP_ROUND_HALF_UP);
 
-                    echo "<div class='relative rounded-xl shadow-xl'>
+                    echo "<div class='relative rounded-xl shadow-xl transition duration-200 ease-in-out transform hover:scale-105'>
                                 <img src='$img_url' class='object-cover rounded-xl h-64 w-full' alt''>
                                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
                                     <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>
@@ -141,7 +141,7 @@
         <div class="mt-4 mb-8 xl:px-56 md:px-24 md:block hidden">
             <hr class="max-w-sm">
         </div>
-        <div class="grid grid-flow-row justify-center gap-y-4 gap-x-4 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
+        <div class="grid grid-flow-row justify-center gap-y-8 gap-x-8 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
             <?php
 
             global $pdo;
@@ -161,7 +161,7 @@
                     $likes = $result['blogpost_likes'];
                     $readingtime = round(str_word_count($content) / 150,1, PHP_ROUND_HALF_UP);
 
-                    echo "<div class='relative rounded-xl shadow-xl'>
+                    echo "<div class='relative rounded-xl shadow-xl transition duration-200 ease-in-out transform hover:scale-105'>
                                 <img src='$img_url' class='object-cover rounded-xl h-64 w-full' alt''>
                                 <div class='absolute top-0 pl-4 pt-4 max-w-sm'>
                                     <h4 class='text-gray-200 text-sm uppercase font-semibold'><i class='fas fa-user mr-2'></i>$author</h4>

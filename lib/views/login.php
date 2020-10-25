@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
     <section class="xl:block hidden h-screen" style="background: linear-gradient(to right, white 50%, #252F3F 50%);">
         <div class="w-1/2 flex h-screen">
             <div class="text-center p-4 absolute inset-y-0 right-0 flex">
-                <a href="https://www.google.com" class="text-gray-400 hover:text-gray-500  text-3xl mr-4"><i class="fas fa-home"></i></a>
+                <a href="?page=home" class="text-gray-400 hover:text-gray-500  text-3xl mr-4"><i class="fas fa-home"></i></a>
             </div>
             <div class="text-center max-w-xl m-auto">
                 <h1 class="font-semibold tracking-tight text-3xl">Logge dich ganz einfach ein <i class="fas fa-sign-in-alt"></i></h1>

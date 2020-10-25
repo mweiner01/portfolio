@@ -15,7 +15,13 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet">
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
-
+    <style>
+        #answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
 </head>
 <body>
 
@@ -87,13 +93,15 @@
         <div class="text-center xl:p-24 md:p-24">
             <h1 class="text-2xl tracking-tight leading-10 font-extrabold text-white sm:text-5xl sm:leading-none md:text-5xl xl:text-6xl uppercase">
                 Hey, ich bin Max!</h1>
-            <h1 class="text-base tracking-tight leading-10 font-extrabold text-green-600 sm:text-3xl leading-none md:text-3xl xl:text-4xl uppercase" id="title"><span
+            <h1 class="text-base tracking-tight leading-10 font-extrabold text-green-600 sm:text-3xl leading-none md:text-3xl xl:text-4xl uppercase"
+                id="title"><span
                         class="txt-rotate"
                         data-period="2000"
                         data-rotate='[ "Hobby Entwickler.", "mit Ausbildung?"]'></span></h1>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
                 <div class="rounded-md shadow">
-                    <button class="w-full font-bold flex items-center justify-center xl:px-8 xl:py-3 px-4 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition duration-150 ease-in-out" id="changeColorBtn">
+                    <button class="w-full font-bold flex items-center justify-center xl:px-8 xl:py-3 px-4 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition duration-150 ease-in-out"
+                            id="changeColorBtn">
                         Kontaktiere mich
                     </button>
                 </div>
@@ -124,11 +132,13 @@
                         </h3>
                         <div class="mt-4 max-w-2xl md:text-xl text-medium leading-7 text-gray-500 lg:mx-auto">
                             <p>
-                                Ich bin der Max, 18 Jahre alt und ich programmiere nun schon seit circa 4 Jahren hobbymäßig. Da mir das Programmieren so viel spaß macht, habe ich beschlossen,
+                                Ich bin der Max, 18 Jahre alt und ich programmiere nun schon seit circa 4 Jahren
+                                hobbymäßig. Da mir das Programmieren so viel spaß macht, habe ich beschlossen,
                                 eine Ausbildung als Fachinformatiker für Anwendungsentwicklung zu beginnen.
                             </p>
                             <br>
-                            <p>Auf der folgenden Seite werden Sie meine Erfahrungen und Kenntnisse etwas besser kennenlernen und ebenfalls einen Einblick in meine derzeitigen Projekte bekommen.
+                            <p>Auf der folgenden Seite werden Sie meine Erfahrungen und Kenntnisse etwas besser
+                                kennenlernen und ebenfalls einen Einblick in meine derzeitigen Projekte bekommen.
                             </p>
                             <div class="mt-5 sm:mt-8 sm:flex sm:justify-start lg:justify-center xl:justify-center">
                                 <div class="mt-3 sm:mt-0">
@@ -158,50 +168,56 @@
                     Meine Erfahrungen
                 </h3>
             </div>
-            <div class="grid grid-flow-row justify-center gap-y-4 gap-x-4 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
-                <div class="max-w-sm">
+            <div class="grid grid-flow-row justify-center gap-y-4 gap-x-32 xl:grid-row-1 xl:grid-cols-3 md:grid-row-2 md:grid-cols-2 grid-row-8 grid-cols-1 xl:px-56 md:px-24 p-4">
+                <div class="">
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fas fa-code"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">HTML & CSS</h1>
                         <p class="text-sm text-gray-500">seit circa. 4 Jahren</p>
                     </div>
                     <div class="mt-2">
-                        <p class="text-base text-gray-500">HTML und CSS lernte ich mit PHP, ich baute einige Webseiten und entdeckte ebenfalls das CSS Framework
-                            <a href="https://tailwindcss.com/" class="text-purple-800 hover:underline">Tailwind</a> welches mir schöne Designs ermöglichte.</p>
+                        <p class="text-base text-gray-500">HTML und CSS lernte ich mit PHP, ich baute einige Webseiten
+                            und entdeckte ebenfalls das CSS Framework
+                            <a href="https://tailwindcss.com/" class="text-purple-800 hover:underline">Tailwind</a>
+                            welches mir schöne Designs ermöglichte.</p>
                     </div>
                 </div>
-                <div class="max-w-sm">
+                <div class="">
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-js"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">Javascript</h1>
                         <p class="text-sm text-gray-500">seit weniger als 1 Monat</p>
                     </div>
                     <div class="mt-2">
-                        <p class="text-base text-gray-500">Mit Javascript kam ich das erste mal in meinem Praktikum in Kontakt. Dort programmierte ich ein Schachspiel mit GUI.</p>
+                        <p class="text-base text-gray-500">Mit Javascript kam ich das erste mal in meinem Praktikum in
+                            Kontakt. Dort programmierte ich ein Schachspiel mit GUI.</p>
                     </div>
                 </div>
-                <div class="max-w-sm">
+                <div class="">
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-php"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">PHP</h1>
                         <p class="text-sm text-gray-500">seit circa. 4 Jahren</p>
                     </div>
                     <div class="mt-2">
-                        <p class="text-base text-gray-500">PHP lernte ich als erstes und meine ersten Projekte waren einfache Webseiten mit Systemen wie Login & Register oder SQL Abfragen für Blogartikel.</p>
+                        <p class="text-base text-gray-500">PHP lernte ich als erstes und meine ersten Projekte waren
+                            einfache Webseiten mit Systemen wie Login & Register oder SQL Abfragen für Blogartikel.</p>
                     </div>
                 </div>
-                <div class="max-w-sm">
+                <div class="">
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-java"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">Java</h1>
                         <p class="text-sm text-gray-500">seit circa. 4 Jahren</p>
                     </div>
                     <div class="mt-2">
-                        <p class="text-base text-gray-500">Meine ersten Projekte mit Java waren Minecraft Plugins mit der
-                            <a href="https://hub.spigotmc.org/javadocs/bukkit/" class="text-purple-800 hover:underline">Spigot</a> API. Ich lernte verschiedenste SQL Abfragen, Datentypen und weiteres.</p>
+                        <p class="text-base text-gray-500">Meine ersten Projekte mit Java waren Minecraft Plugins mit
+                            der
+                            <a href="https://hub.spigotmc.org/javadocs/bukkit/" class="text-purple-800 hover:underline">Spigot</a>
+                            API. Ich lernte verschiedenste SQL Abfragen, Datentypen und weiteres.</p>
                     </div>
                 </div>
-                <div class="max-w-sm">
+                <div class="">
                     <div class="text-left">
                         <span class="text-3xl text-purple-800"><i class="fab fa-python"></i></span>
                         <h1 class="font-semibold text-xl text-gray-900">Python</h1>
@@ -209,7 +225,9 @@
                     </div>
                     <div class="mt-2">
                         <p class="text-base text-gray-500">Erste Erfahrungen machte ich mit Python, indem ich die
-                            <a href="https://discordpy.readthedocs.io/en/latest/" class="text-purple-800 hover:underline">discord.py</a> API benutzte oder einfache Skripts schrieb, die mir nervige Aufgaben erleichterten.</p>
+                            <a href="https://discordpy.readthedocs.io/en/latest/"
+                               class="text-purple-800 hover:underline">discord.py</a> API benutzte oder einfache Skripts
+                            schrieb, die mir nervige Aufgaben erleichterten.</p>
                     </div>
                 </div>
             </div>
@@ -217,36 +235,69 @@
     </section>
     <!-- Experience section end -->
 
+    <!-- Projects section END -->
 
-    <!-- Projects section START -->
-    <section class="p-8 md:p-16" id="projects">
-        <div class="p-12 border-t-2 border-gray-300">
-            <div class="text-left">
-                <p class="text-xl leading-6 text-red-800 font-semibold tracking-wide uppercase">
-                    Projekte</p>
+    <section class="p-8 md:p-16" id="experienceSection">
+        <div class="pt-12 border-t-2 border-gray-300">
+            <div class="text-center">
+                <p class="text-xl leading-6 text-purple-800 font-semibold tracking-wide uppercase">
+                    Frequently Asked Questions</p>
                 <h3 class="text-3xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-4xl xl:text-5xl uppercase">
-                    Meine Projekte
+                    Häufig gestellte Fragen
                 </h3>
             </div>
-            <div class="grid grid-flow-row xl:grid-cols-4 md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-6 pt-12">
-                <div class="hover:shadow-5xl">
-                    <img alt="" class="h-auto rounded-lg" src="https://i.redd.it/7bdir2zk8nq41.jpg">
-                    <div class="text-left pt-2">
-                        <p class="text-medium text-gray-900 font-semibold tracking-wide uppercase">Mein Portfolio (Diese
-                            Seite)</p>
-                        <p class="text-sm text-gray-500 tracking-wide">Veröffentlicht: Noch nicht</p>
-                        <div>
-                            <a class="text-sm text-red-800 hover:underline hover:text-red-900 mr-2" href="#">Live
-                                Ansicht</a>
-                            <a class="text-sm text-red-800 hover:underline hover:text-red-900 hover:underline"
-                               href="https://github.com/mweiner01/mweiner01.github.io">Github Repository</a>
+            <div class="pt-12">
+                <div class="container p-4 bg-gray-200 mx-auto hover:bg-gray-300">
+                    <div class="accordion text-gray-900">
+                        <div class="" id="question1">
+                            <button class="md:text-xl text-base font-semibold collapsible">
+                                Wer bist du?
+                            </button>
+                            <div id="answer" class="text-gray-900">
+                                <p class="mt-2 rounded md:text-lg text-sm bg-gray-300 border-l-4 border-blue-400 p-2">Ich bin Max Weiner, 18 Jahre alt und komme aus Hamburg. Meine Leidenschaft zum Programmieren habe ich in der 8. Klasse gefunden und seitdem programmiere ich. Nun bin ich auf der Suche nach einer Ausbildung. Diese Webseite soll mir dabei helfen!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-2 p-4 bg-gray-200 mx-auto hover:bg-gray-300">
+                    <div class="accordion text-gray-900">
+                        <div class="" id="question1">
+                            <button class="md:text-xl text-base font-semibold collapsible">
+                                Was war deine erste Programmiersprache?
+                            </button>
+                            <div id="answer" class="text-gray-900">
+                                <p class="mt-2 rounded md:text-lg text-sm bg-gray-300 border-l-4 border-yellow-400 p-2">Meine erste Programmiersprache war entweder <strong>PHP</strong> oder <strong>Java</strong>. Ich bin mir da leider nicht mehr genau sicher. Aber beide Sprachen benutze ich noch heute. PHP zum einen für diese Webseite und Java für andere Projekte.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-2 p-4 bg-gray-200 mx-auto hover:bg-gray-300">
+                    <div class="accordion text-gray-900">
+                        <div class="" id="question1">
+                            <button class="md:text-xl text-base font-semibold collapsible">
+                                Was macht dir beim Programmieren am meisten Spaß?
+                            </button>
+                            <div id="answer" class="text-gray-900">
+                                <p class="mt-2 rounded md:text-lg text-sm bg-gray-300 border-l-4 border-red-400 p-2">Da kann ich mich nicht genau festlegen. Vieles macht mir Spaß! Aber wenn ich mich entscheiden müsste, dann wäre es eindeutig <strong>Webdevelopment</strong>. Damit habe ich recht früh angefangen und es macht mir immernoch sehr viel Spaß. Ebenso gefällt mir das Designen. Auch wenn ich nicht der beste darin bin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-2 p-4 bg-gray-200 mx-auto hover:bg-gray-300">
+                    <div class="accordion text-gray-900">
+                        <div class="" id="question1">
+                            <button class="md:text-xl text-base font-semibold collapsible">
+                                In welchem Bereich möchtest du Programmieren?
+                            </button>
+                            <div id="answer" class="text-gray-900">
+                                <p class="mt-2 rounded md:text-lg text-sm bg-gray-300 border-l-4 border-green-400 p-2">Diese Frage kann ich leider nicht beantworten. Ich werde mich erstmal darauf fokussieren, eine Ausbildung zu finden. Weiteres sehe ich dann :)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Projects section END -->
 
 
     <!-- footer section START -->
@@ -288,13 +339,29 @@
         src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
 
-
 <script crossorigin="anonymous"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <!-- Linking ../../js/script.js -->
 <script src="js/script.js"></script>
 <script src="js/textwriting_skript.js"></script>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

@@ -147,7 +147,7 @@
             global $pdo;
 
             // sql to get all posts ordered by date and blogpost_featured = 0
-            $sql = "SELECT * FROM blogposts ORDER BY blogpost_date DESC LIMIT 6";
+            $sql = "SELECT * FROM blogposts WHERE blogpost_featured=0 ORDER BY blogpost_date DESC LIMIT 6";
 
             try {
                 $statement = $pdo->prepare($sql);
